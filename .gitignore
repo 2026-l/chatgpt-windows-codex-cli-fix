@@ -1,0 +1,17 @@
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Editors
+.vscode/
+.idea/
+
+# Logs / temporary files
+*.log
+*.tmp
+
+# Never commit secrets
+.env
+.env.*
+*.key
+*.pem
