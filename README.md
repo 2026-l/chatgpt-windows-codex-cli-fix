@@ -18,6 +18,11 @@ Upstream report:
 Official references:
 - ChatGPT Windows app: https://help.openai.com/en/articles/9982051-using-the-chatgpt-windows-app
 - New ChatGPT desktop app: https://help.openai.com/en/articles/20001276
+### Why can this happen suddenly?
+
+The app may work normally and then fail after an update or environment change if the Codex CLI binary can no longer be located at the path expected by the desktop app.
+
+In the case documented here, the Codex CLI itself was still functional. The workaround was to locate the native `codex.exe` binary and set `CODEX_CLI_PATH` to that executable.
 
 ## Quick fix
 
