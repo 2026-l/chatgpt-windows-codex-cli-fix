@@ -23,7 +23,15 @@ Official references:
 The app may work normally and then fail after an update or environment change if the Codex CLI binary can no longer be located at the path expected by the desktop app.
 
 In the case documented here, the Codex CLI itself was still functional. The workaround was to locate the native `codex.exe` binary and set `CODEX_CLI_PATH` to that executable.
+## Community confirmations
 
+This workaround has also been reported to work by another user on Windows 10.
+
+In that case, Codex CLI was not previously installed. After installing Codex CLI and configuring the required environment variable, the ChatGPT desktop app started successfully.
+
+See the discussion in upstream issue [#40752](https://github.com/openai/codex/issues/40752).
+
+This is still a community-reported workaround, not an official fix, and the same error message may have different root causes.
 ## Quick fix
 
 ### 1. Check Node.js
