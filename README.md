@@ -8,6 +8,15 @@ This repository documents a workaround that was successfully tested on Windows 1
 
 > **Important:** This is an unofficial community workaround, not an official OpenAI fix. Prefer an official app update when one becomes available.
 
+## Choose the guide by the error message
+
+| Symptom | Guide and `CODEX_CLI_PATH` action |
+| --- | --- |
+| `Unable to locate the Codex CLI binary` (or `spawn EINVAL` after pointing at `codex.cmd`) | [Native CLI workaround](https://github.com/2026-l/chatgpt-windows-codex-cli-fix/blob/main/README.md): set the **User** value to the verified native `codex.exe`, not the `codex.cmd` wrapper. |
+| `Unable to load organization settings` | [Organization-settings recovery](https://github.com/2026-l/windows-codex-org-settings-recovery/blob/main/README.md): diagnose first; if an unexpected **User** override is present, preview the repair, back it up, clear it, and **restart Windows** before retesting. |
+
+> **Do not apply both remedies in sequence.** They address different reported symptoms and make opposite changes to the same variable. Setting it is not a general fix for organization-settings errors; clearing it is not a general fix for a missing CLI binary. The organization-settings guide records **one confirmed recovery**, not a proven root cause or universal fix. If the error changes, reassess using the matching guide instead of toggling the variable. If it is intentionally administrator-managed, ask the administrator before changing it.
+
 ## What happened
 
 A Windows desktop app update may fail to locate its bundled Codex CLI binary. Pointing `CODEX_CLI_PATH` at the npm wrapper `codex.cmd` can also fail with `spawn EINVAL`. The workaround is to point `CODEX_CLI_PATH` directly at the native `codex.exe` inside the globally installed `@openai/codex` package.
