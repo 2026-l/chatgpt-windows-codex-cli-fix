@@ -8,6 +8,15 @@
 
 > **注意：** 这不是 OpenAI 官方修复，而是社区 workaround。官方版本更新后，应优先使用官方修复。
 
+## 先按报错选择指南
+
+| 症状 | 对应指南与 `CODEX_CLI_PATH` 操作 |
+| --- | --- |
+| `Unable to locate the Codex CLI binary`（或指向 `codex.cmd` 后出现 `spawn EINVAL`） | [原生 CLI 临时解决方案](https://github.com/2026-l/chatgpt-windows-codex-cli-fix/blob/main/README_zh-CN.md)：将**用户级**变量设为已验证的原生 `codex.exe` 路径，而不是 `codex.cmd` 包装脚本。 |
+| `Unable to load organization settings`（无法加载组织设置） | [组织设置恢复指南](https://github.com/2026-l/windows-codex-org-settings-recovery/blob/main/README.zh-CN.md)：先诊断；若存在异常的**用户级**覆盖值，先预览修复，再备份并清除该值，**重启 Windows** 后验证。 |
+
+> **不要把两套方案连续执行。** 它们针对不同的已报告症状，对同一个变量的操作恰好相反。设置变量不是组织设置报错的通用修复，清除变量也不是找不到 CLI 的通用修复。组织设置指南仅记录了**一个已确认恢复的案例**，并未证明根因或通用有效性。若报错改变，应重新按对应指南排查，而不是反复设置、清除变量。若该变量由管理员有意配置，修改前先咨询管理员。
+
 ## 问题原因
 
 某些 Windows 桌面端更新后，应用可能无法找到随应用打包的 Codex CLI。即使手动安装了 Codex CLI，如果把 `CODEX_CLI_PATH` 指向 npm 生成的 `codex.cmd`，还可能出现 `spawn EINVAL`。
